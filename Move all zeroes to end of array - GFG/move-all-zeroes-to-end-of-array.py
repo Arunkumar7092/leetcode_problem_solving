@@ -3,17 +3,18 @@
 class Solution:
 	def pushZerosToEnd(self,arr, n):
     	# code here
-    	temp = []
-        n = len(arr)
-        for i in range(0,len(arr)):
-            if arr[i] != 0:
-                temp.append(arr[i])
-        for j in range(0,len(temp)):
-            arr[j] = temp[j]
-        
-        for k in range(len(temp),n):
-            arr[k] = 0
-
+    	j = -1
+        for i in range(0,n):
+            if arr[i] == 0:
+                j = i
+                break
+        if j != -1:
+            for i in range(j+1 , n):
+                if arr[i] != 0:
+                    temp = arr[j]
+                    arr[j] = arr[i]
+                    arr[i] = temp
+                    j +=1
 
 
 #{ 
